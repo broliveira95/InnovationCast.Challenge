@@ -12,7 +12,7 @@ using System.Linq;
 namespace InnovationCast.Challenge.Api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("[controller]/[action]")]
     public class CommentsController : ControllerBase
     {
         protected readonly IMapper _mapper;
@@ -20,8 +20,8 @@ namespace InnovationCast.Challenge.Api.Controllers
 
         public CommentsController(IMapper mapper, ICommentsRepository commentRepository)
         {
-            _mapper = mapper ?? throw new System.ArgumentNullException(nameof(mapper));
-            _commentRepository = commentRepository ?? throw new System.ArgumentNullException(nameof(commentRepository));
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+            _commentRepository = commentRepository ?? throw new ArgumentNullException(nameof(commentRepository));
         }
 
         [HttpGet]
@@ -36,7 +36,7 @@ namespace InnovationCast.Challenge.Api.Controllers
             var totalCount = commentsDb.Count();
 
             // if skip,take == 0 -> take all
-            if (skip != 0 || take != 0 )
+            if (skip != 0 || take != 0)
             {
                 commentsDb = commentsDb.Skip(skip).Take(take).ToList();
             }
@@ -62,7 +62,7 @@ namespace InnovationCast.Challenge.Api.Controllers
                 Author = resquest.Author
             });
 
-            if (comment is null) 
+            if (comment is null)
             {
                 return new CreateCommentResponse
                 {
