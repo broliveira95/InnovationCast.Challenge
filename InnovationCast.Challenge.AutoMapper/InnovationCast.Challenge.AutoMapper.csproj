@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\InnovationCast.Challenge.Api.Models\InnovationCast.Challenge.Api.Models.csproj" />
+    <ProjectReference Include="..\InnovationCast.Challenge.Database\InnovationCast.Challenge.Database.csproj" />
+  </ItemGroup>
+
+</Project>
